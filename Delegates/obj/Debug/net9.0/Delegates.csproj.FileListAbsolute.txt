@@ -12,3 +12,4 @@ C:\Users\HOME\RiderProjects\testa\Delegates\obj\Debug\net9.0\refint\Delegates.dl
 C:\Users\HOME\RiderProjects\testa\Delegates\obj\Debug\net9.0\Delegates.pdb
 C:\Users\HOME\RiderProjects\testa\Delegates\obj\Debug\net9.0\Delegates.genruntimeconfig.cache
 C:\Users\HOME\RiderProjects\testa\Delegates\obj\Debug\net9.0\ref\Delegates.dll
+C:\Users\HOME\RiderProjects\testa\Delegates\obj\Debug\net9.0\Delegates.sourcelink.json

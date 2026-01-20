@@ -1,22 +1,15 @@
-﻿using System.Net.Http.Headers;
+﻿using System.ComponentModel.Design;
+using System.Diagnostics.CodeAnalysis;
+using System.Net.Http.Headers;
 
 namespace Delegates;
 
 class Program
 {
-    enum OperationType
-    {
-        Add,
-        Subtract,
-        Multiply
-    }
     delegate void Message();
     delegate int Operation(int x, int y);
     // delegate void DomeDel(int a, double b);
     // delegate T Operation<T, K>(K val);
-    public Program()
-    {
-    }
 
     static void Main(string[] args)
     {
@@ -39,9 +32,9 @@ class Program
         // result = operation(10, 20);
         // Console.WriteLine(result);
         //
-        int Add(int x, int y) => x + y;
-        int Subtract(int x, int y) => x - y;
-        int Multiply(int x, int y) => x * y;
+        // int Add(int x, int y) => x + y;
+        // int Subtract(int x, int y) => x - y;
+        // int Multiply(int x, int y) => x * y;
 
         // Operation operation = Add;
         // Operation operation2 = new Operation(Add); Another option
@@ -298,34 +291,25 @@ class Program
         Console.WriteLine(operation(10, 20));
         
         operation = SelectOperation(OperationType.Subtract);
-        Console.WriteLine(operation(10, 20));
+        Console.WriteLine(operation(50, 40));
         
         operation = SelectOperation(OperationType.Multiply);
-        Console.WriteLine(operation(10, 20));
+        Console.WriteLine(operation(10, 50));
 
-        Operation SelectOperation(OperationType opType)
+        Operation SelectOperation(OperationType operationType)
         {
-            switch (opType)
+            switch (operationType)
             {
-                case OperationType.Add: return Add;
-                case OperationType.Subtract: return Subtract;
-                default: return Multiply;
+                case OperationType.Add: return (x, y) => x + y;
+                case OperationType.Subtract: return (x, y) => x - y;
+                default: return (x, y) => x * y;
             }
         }
-        
-        void Hello() => Console.WriteLine("Hello, Metanit.com");
-        void HowAreYou() => Console.WriteLine("How are you?");
-        void HowOldAreYou() => Console.WriteLine("How old are you?");
-
     }
 }
 
-// class Welcome
-// {
-//     public static void Print() => Console.WriteLine("Welcome");
-// }
-//
-// class Hello
-// {
-//     public void Display() => Console.WriteLine("Hello");
-// }
+delegate void MessageHandler(string message);
+delegate void Message();
+delegate void MathOperation(int x, int y);
+delegate void PrintHandler(string message);
+delegate bool IsEqual(int x);

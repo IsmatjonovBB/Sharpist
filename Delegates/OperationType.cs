@@ -1,6 +1,8 @@
 namespace Delegates;
 
-public enum OperationType
+enum OperationType
 {
-    
+    Add,
+    Subtract,
+    Multiply
 }
