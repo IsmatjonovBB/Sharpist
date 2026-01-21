@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HOME\\RiderProjects\\testa\\ExceptionRS\\ExceptionRS.csproj",
+      "projectUniqueName": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\ExceptionRS\\ExceptionRS.csproj",
       "projectName": "ExceptionRS",
-      "projectPath": "C:\\Users\\HOME\\RiderProjects\\testa\\ExceptionRS\\ExceptionRS.csproj",
+      "projectPath": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\ExceptionRS\\ExceptionRS.csproj",
       "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HOME\\RiderProjects\\testa\\ExceptionRS\\obj\\",
+      "outputPath": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\ExceptionRS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

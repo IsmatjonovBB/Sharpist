@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HOME\\RiderProjects\\testa\\OOP\\OOP.csproj": {}
+    "C:\\Users\\HOME\\RiderProjects\\Sharpist\\OOP\\OOP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HOME\\RiderProjects\\testa\\OOP\\OOP.csproj": {
+    "C:\\Users\\HOME\\RiderProjects\\Sharpist\\OOP\\OOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HOME\\RiderProjects\\testa\\OOP\\OOP.csproj",
+        "projectUniqueName": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\OOP\\OOP.csproj",
         "projectName": "OOP",
-        "projectPath": "C:\\Users\\HOME\\RiderProjects\\testa\\OOP\\OOP.csproj",
+        "projectPath": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\OOP\\OOP.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HOME\\RiderProjects\\testa\\OOP\\obj\\",
+        "outputPath": "C:\\Users\\HOME\\RiderProjects\\Sharpist\\OOP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

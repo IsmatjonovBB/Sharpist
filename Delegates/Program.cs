@@ -287,27 +287,89 @@ class Program
         
         // Lambda-Expression as a result of method
 
-        Operation operation = SelectOperation(OperationType.Add);
-        Console.WriteLine(operation(10, 20));
+        // Operation operation = SelectOperation(OperationType.Add);
+        // Console.WriteLine(operation(10, 20));
+        //
+        // operation = SelectOperation(OperationType.Subtract);
+        // Console.WriteLine(operation(50, 40));
+        //
+        // operation = SelectOperation(OperationType.Multiply);
+        // Console.WriteLine(operation(10, 50));
+        //
+        // Operation SelectOperation(OperationType operationType)
+        // {
+        //     switch (operationType)
+        //     {
+        //         case OperationType.Add: return (x, y) => x + y;  //We can use Lambda-Expression here
+        //         case OperationType.Subtract: return (x, y) => x - y;
+        //         default: return (x, y) => x * y;
+        //     }
+        // }
         
-        operation = SelectOperation(OperationType.Subtract);
-        Console.WriteLine(operation(50, 40));
         
-        operation = SelectOperation(OperationType.Multiply);
-        Console.WriteLine(operation(10, 50));
+        /* EVENTS */
 
-        Operation SelectOperation(OperationType operationType)
+        // Account account = new(100);
+        // account.Notify += DisplayMessage;
+        // account.Notify += DisplayRedMessage;
+        // account.Put(20);
+        // // Console.WriteLine($"Сумма на счете: {account.Sum}");
+        // account.Take(70);
+        // // account.Notify -= DisplayRedMessage;
+        // Console.WriteLine($"Сумма на счете: {account.Sum}");
+        // account.Take(180);
+        // // Console.WriteLine($"Сумма на счете: {account.Sum}");
+
+        // Account acc = new Account(100);
+        // acc.Notify += new Account.AccountHandler(DisplayMessage);
+        // acc.Notify += DisplayMessage;
+        // acc.Put(20);
+
+        // Unit with Annonymous method
+        // Account account = new(100);
+        // account.Notify += delegate (string message)
+        // {
+        //     Console.WriteLine(message);
+        // };
+        // account.Put(20);
+        
+        // Unit with Lambda-expression
+        // Account account = new Account(100);
+        // account.Notify += message => Console.WriteLine(message);
+        // account.Put(20);
+        
+        
+        // Controlling editors
+        // Account account = new Account(100);
+        // account.Notify += DisplayMessage;
+        // account.Put(20);
+        // account.Notify -= DisplayMessage;
+        // account.Take(60);
+        
+        
+        // Event data transfer | IMPORTANT MOMENT!!!
+        Account account = new(100);
+        account.Notify += DisplayMessage;
+        account.Put(20);
+        account.Put(70);
+        account.Put(150);
+
+        void DisplayMessage(Account sender, AccountEventArgs e)
         {
-            switch (operationType)
-            {
-                case OperationType.Add: return (x, y) => x + y;
-                case OperationType.Subtract: return (x, y) => x - y;
-                default: return (x, y) => x * y;
-            }
+            Console.WriteLine($"Сумма транзакции: {e.Sum}");
+            Console.WriteLine(e.Message);
+            Console.WriteLine($"Текущая сумма на счете: {sender.Sum}");
         }
+        // void DisplayRedMessage(string message)
+        // {
+        //     Console.ForegroundColor = ConsoleColor.Red;
+        //     Console.WriteLine(message);
+        //     Console.ResetColor();
+        // }
+        
     }
 }
-
+// DELEGATES
 delegate void MessageHandler(string message);
 delegate void Message();
 delegate void MathOperation(int x, int y);
