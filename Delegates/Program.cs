@@ -379,16 +379,71 @@ class Program
         
         
         // Covariance
-        MessageBuilder messageBuilder = WriteSmsMessage; // ковариантность
-        Message message = messageBuilder("Hello");
-        message.Print();    // Email: Hello
-        SmsMessage WriteSmsMessage(string message) => new SmsMessage(message);
+        // MessageBuilder messageBuilder = WriteSmsMessage; // ковариантность
+        // Message message = messageBuilder("Hello");
+        // message.Print();    // Email: Hello
+        // SmsMessage WriteSmsMessage(string message) => new SmsMessage(message);
 
-        Console.WriteLine("\n---------------- \n");
+        // Console.WriteLine("\n----------------\n");
+        //
+        // EmailReciever emailBox = Reciever;
+        // emailBox(new ("Welcome"));
+        // void Reciever(Message message) => message.Print();
+        //
+        // Console.WriteLine("\n----------------\n");
 
-        EmailReciever emailBox = RecieveMessage;  // контравариантность
-        emailBox(new EmailMessage("Welcome"));
-        void RecieveMessage(EmailMessage message) => message.Print();
+        // GENERIC COVARIANCE
+        // MessageBuilder<EmailMessage> EmailMessageWriter = text => new EmailMessage(text);
+        // MessageBuilder<Message> messageBuilder = EmailMessageWriter;
+        // Message message = messageBuilder("Hello, Tom");
+        // message.Print();
+
+        // GENERIC CONTRAVARIANCE
+        // MessageReceiver<Message> messageReceiver = (Message message) => message.Print();
+        // MessageReceiver<EmailMessage> emailReceiver = messageReceiver;
+        // messageReceiver(new Message("Hello World!"));
+        // messageReceiver(new EmailMessage("Hello World!"));
+        
+        
+        // COMBINING COVARIANCE AND CONTRAVARIANCE
+        // MessageConverter<Message, EmailMessage> toEmailConverter = message => new EmailMessage(message.Text);
+        // MessageConverter<SmsMessage, Message> converter = toEmailConverter;
+        // Message message = converter(new SmsMessage("Hello Work!"));
+        // message.Print();
+        
+        
+        // DELEGATES ACTION, PREDICATE AND FUNC
+
+        // Action
+        // DoOperation(10, 6, Add);
+        // DoOperation(10, 6, Multiply);
+        // void DoOperation(int a, int b, Action<int, int> op) => op(a, b);
+        
+        void Add(int a, int b) => Console.WriteLine($"{a} + {b} = {a + b}");
+        void Multiply(int a, int b) => Console.WriteLine($"{a} * {b} = {a * b}");
+        
+        // Predicate
+        // Predicate<int> isPositive = x => x >= 0;
+        // Console.WriteLine(isPositive(20));
+        // Console.WriteLine(isPositive(-20));
+        
+        // Func
+        // int result1 = DoOperation(6, DoubleNumber);
+        // Console.WriteLine(result1);
+        //
+        // int result2 = DoOperation(6, SquareNumber);
+        // Console.WriteLine(result2);
+        //
+        // int DoOperation(int a, Func<int, int> operation) => operation(a);
+        // int DoubleNumber(int a) => a * 2;
+        // int SquareNumber(int a) => a * a;
+
+        // Func<int, double, double> summa = (x, y) => x + y;
+        // Console.WriteLine(summa(2, 3.32));
+
+        // Func<int, int, string> createString = (x, y) => $"{x}{y}";
+        // Console.WriteLine(createString(07, 71));
+        // Console.WriteLine(createString(14, 88));
     }
 }
 // DELEGATES
@@ -397,5 +452,10 @@ delegate void MessageHandler(string message);
 delegate void MathOperation(int x, int y);
 delegate void PrintHandler(string message);
 delegate bool IsEqual(int x);
-delegate Message MessageBuilder(string message);
+// delegate Message MessageBuilder(string message);
 delegate void EmailReciever(EmailMessage message);
+delegate T MessageBuilder<out T>(string message);
+delegate void MessageReceiver<in T>(T message);
+delegate E MessageConverter<in M, out E>(M message);
+
+delegate void Action<in T>(T obj);
