@@ -8,7 +8,7 @@ namespace Delegates;
 class Program
 {
     // delegate void Message();
-    delegate int Operation(int x, int y);
+    // delegate int Operation(int x, int y);
     // delegate void DomeDel(int a, double b);
     // delegate T Operation<T, K>(K val);
 
@@ -419,8 +419,8 @@ class Program
         // DoOperation(10, 6, Multiply);
         // void DoOperation(int a, int b, Action<int, int> op) => op(a, b);
         
-        void Add(int a, int b) => Console.WriteLine($"{a} + {b} = {a + b}");
-        void Multiply(int a, int b) => Console.WriteLine($"{a} * {b} = {a * b}");
+        // void Add(int a, int b) => Console.WriteLine($"{a} + {b} = {a + b}");
+        // void Multiply(int a, int b) => Console.WriteLine($"{a} * {b} = {a * b}");
         
         // Predicate
         // Predicate<int> isPositive = x => x >= 0;
@@ -444,6 +444,57 @@ class Program
         // Func<int, int, string> createString = (x, y) => $"{x}{y}";
         // Console.WriteLine(createString(07, 71));
         // Console.WriteLine(createString(14, 88));
+        
+        
+        // CLOSURE
+
+        // var fn = Outer();
+        // fn();
+        // fn();
+        // fn();
+        // Action Outer()
+        // {
+        //     int x = 5;
+        //
+        //     void Inner()
+        //     {
+        //         x++;
+        //         Console.WriteLine(x);
+        //     }
+        //     return Inner;
+        // }
+
+        // var outerFn = () =>
+        // {
+        //     int x = 10;
+        //     var innerFn = () => Console.WriteLine(++x);
+        //     return innerFn;
+        // };
+        // var Fn = outerFn();
+        // Fn();
+        // Fn();
+        // Fn();
+        
+        // Using Params
+        // var fn = Multiply(5);
+        // Console.WriteLine(fn(5));
+        // Console.WriteLine(fn(6));
+        // Console.WriteLine(fn(7));
+        // Operation Multiply(int n)
+        // {
+        //     int Inner(int m)
+        //     {
+        //         return n * m;
+        //     }
+        //     return Inner;
+        // }
+        
+        // Refuse the code via Lambda
+        var multiply = (int n) => (int m) => m * n;
+        var fn = multiply(5);
+        Console.WriteLine(fn(5));
+        Console.WriteLine(fn(6));
+        Console.WriteLine(fn(7));
     }
 }
 // DELEGATES
@@ -457,5 +508,4 @@ delegate void EmailReciever(EmailMessage message);
 delegate T MessageBuilder<out T>(string message);
 delegate void MessageReceiver<in T>(T message);
 delegate E MessageConverter<in M, out E>(M message);
-
-delegate void Action<in T>(T obj);
+delegate int Operation(int x);
