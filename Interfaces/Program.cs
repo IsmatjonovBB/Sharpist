@@ -75,5 +75,8 @@ class Program
         // подписываемся на событие
         tom.MoveEvent += () => Console.WriteLine($"{tom.Name} is moving");
         tom.Move();
+        
+        
+        // Unbroken Society
     }
 }
